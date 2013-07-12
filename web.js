@@ -10,6 +10,10 @@ txt = buff.toString();
 
 app.get('/', function(request, response) {
 	//response.send('Hello World2!');
+
+	var buff = new Buffer(fs.readFileSync('index.html'), 'utf-8');
+	txt = buff.toString();
+
 	responce.send(txt);
 });
 
