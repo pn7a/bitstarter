@@ -4,18 +4,11 @@ var express = require('express');
 
 var app = express.createServer(express.logger());
 
-var buff = new Buffer(fs.readFileSync('index.html', 'utf-8'));
-
-txt = buff.toString();
+var indexFile = fs.readFileSync('index.html');
+var indexToString = indexFile.toString();
 
 app.get('/', function(request, response) {
-	//response.send('Hello World2!');
-
-	var buff = new Buffer(fs.readFileSync('index.html'), 'utf-8');
-	txt = buff.toString();
-
-	//responce.send(txt);
-	response.send(fs.readFileSync('index.html').toString());
+	response.send(indexToString);
 });
 
 var port = process.env.PORT || 5000;
